@@ -1,4 +1,9 @@
 def flood_fill(input_board, old, new, x, y):
+# Assert all rows have the same length
+    row_length = len(input_board[0])
+    for row in input_board:
+        assert len(row) == row_length
+
     # Check if the current coordinates (x, y) are out of bounds or if the cell already has the "new" value
     if x < 0 or x > 7 or y < 0 or y > 21:
         return input_board
@@ -24,7 +29,7 @@ board = [
     "....##############....",
 ]
 
-modified_board = flood_fill(input_board=board, old=".", new="~", x=1, y=1)
+modified_board = flood_fill(input_board=board, old=".", new="*", x=1, y=1)
 
 for a in modified_board:
     print(a)
